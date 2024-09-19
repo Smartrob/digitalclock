@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital-clock</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    
+
+
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 100vw;
+        height: 94vh;
+        background: rgb(238, 174, 202);
+        background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    }
+
+    .container {
+        background: linear-gradient(135deg, rgba(45, 7, 234, 0.547) 0%, rgba(78, 156, 245, 0.541) 100%);
+        width: 40%;
+        height: 20%;
+        position: relative;
+        border-radius: 10px;
+        box-shadow: 0 2px 15px rgba(67, 5, 236, 0.534);
+
+
+    }
+
+    .clock {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .clock span {
+        color: #fff;
+        margin: 10px;
+        padding: 10px;
+        font-size: 85px;
+    }
+
+    /* .container::before{
+        content: '';
+         background-color: pink;
+         position: absolute;
+         width: 25%;
+         height: 100%;
+         border-radius: 50px;
+    } */
+
+     .footer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(238, 174, 202);
+        background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+        padding: 10px;
+     }
+</style>
+
+<body>
+    <main class="main">
+        <div class="container">
+            <div class="clock">
+                <span id="hr">00</span>
+                <span>:</span>
+                <span id="min">00</span>
+                <span>:</span>
+                <span id="sec">00</span>
+            </div>
+        </div>
+    </main>
+    <div class="footer">
+        <p><a href="https://technicalraven.netlify.app">Technical Raven</a> &copy; copyright 2024</p>
+    </div>
+    <script>
+        var hr = document.getElementById("hr");
+        var min = document.getElementById("min");
+        var sec = document.getElementById("sec");
+
+
+
+        setInterval(() => {
+            var currenttime = new Date();
+            hr.innerHTML = (currenttime.getHours()<10?"0":"") + currenttime.getHours();
+            min.innerHTML = (currenttime.getMinutes() < 10 ? "0" : "") + currenttime.getMinutes();
+            sec.innerHTML = (currenttime.getSeconds() < 10 ? "0" : "") + currenttime.getSeconds();
+
+            // console.log(currenttime.getHours());
+        }, 1000);
+
+
+        // 
+
+    </script>
+
+</body>
+
+</html>
